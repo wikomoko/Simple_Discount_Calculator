@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount Counter</title>
+    <style type="text/css">
+        .card {
+            line-height: 40px;
+            font-family: sans-serif;
+            width: 280px;
+            margin: auto;
+            border-color: #BEBEBE;
+            border-style: solid;
+            border-width: 1px;
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        .pricing {
+            width: 270px;
+            height: 35px;
+            font-size: 20px;
+            border-radius: 5px;
+            border-color: #BEBEBE;
+            border-style: solid;
+            border-width: 1px;
+        }
+
+        input[type="number"]:focus {
+            color: #2196F3;
+            outline: none;
+            box-shadow: 0px 0px 10px 1px #BEBEBE;
+        }
+
+        .label {
+            font-size: 18px;
+            color: #BEBEBE;
+        }
+
+        .discount {
+            width: 100px;
+            height: 35px;
+            font-size: 20px;
+            border-radius: 5px;
+            border-color: #BEBEBE;
+            border-style: solid;
+            border-width: 1px;
+        }
+
+        .percent {
+            font-size: 25px;
+            color: #BEBEBE;
+        }
+
+        hr {
+            border-color: #BEBEBE;
+            border-style: solid;
+            border-width: 1px;
+        }
+
+        .button_area {
+            text-align: center;
+        }
+
+        .button:focus {
+            outline: none;
+
+        }
+
+        .button:hover {
+            width: 270px;
+            height: 39px;
+            background-color: #2196F3;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px 3px #BEBEBE;
+            font-size: 20px;
+            color: white;
+        }
+
+        .buttonrst:hover {
+            width: 270px;
+            height: 39px;
+            background-color: #FF9898;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px 3px #BEBEBE;
+            font-size: 20px;
+            color: white;
+
+        }
+
+        .button {
+            display: block;
+            transition: 0.2s;
+            width: 270px;
+            height: 39px;
+            background-color: #2196F3;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px 1px #BEBEBE;
+            font-size: 20px;
+            color: white;
+        }
+
+        .buttonrst {
+            display: none;
+            transition: 0.2s;
+            width: 270px;
+            height: 39px;
+            background-color: #FF9898;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px 1px #BEBEBE;
+            font-size: 20px;
+            color: white;
+        }
+        
+        #result{
+            font-size: 30px;
+            color: #777777;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <br>
+        <label for="pricing" class="label">Price </label>
+        <br>
+        <input type="number" class="pricing" id="pricing">
+        <br>
+        <label for="discount" class="label">Discount </label>
+        <br>
+        <input type="number" class="discount" id="discount">
+        <span class="percent">%</span>
+        <hr>
+        <span class="label">Calculate Result</span>
+        <br>
+        <span id="result"></span>
+        <button class="button" onclick="calculate()" id="btncalc">Calculate </button>
+        <button class="buttonrst" onclick="reset()" id="btnrst">Reset </button>
+    </div>
+
+    <script>
+        function calculate() {
+            let price = document.getElementById("pricing").value;
+            let discount = document.getElementById("discount").value;
+            let calcButton = document.getElementById("btncalc");
+            let rstButton = document.getElementById("btnrst");
+
+            if (price == 0 || price == null || price == "") {
+
+                alert("!!! Please Fill The Price Input !!!");
+            }
+            else {
+                let percentate = price * discount / 100;
+                let result = price - percentate;
+
+                document.getElementById("result").innerHTML = result;
+
+                calcButton.style.display = "none";
+                rstButton.style.display = "block";
+            }
+        }
+
+        function reset() {
+            let price = document.getElementById("pricing").value = null;
+            let discount = document.getElementById("discount").value = null;
+            let calcButton = document.getElementById("btncalc");
+            let rstButton = document.getElementById("btnrst");
+
+            document.getElementById("result").innerHTML = null;
+
+            calcButton.style.display = "block";
+
+            rstButton.style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

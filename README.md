@@ -1,5 +1,5 @@
 # Simple_Discount_Calculator
-This is a Simple Discount Calculator that it built with only a single HTML file
+This is a Simple Discount Calculator that it built with only a single HTML file and one UI design 
 
 This application can run on all devices that support web browser. The App was built using pure HTML, CSS, and Javascript natively. Then it is open source app, so everyone is allow to modify it. This app also has tested using mobile phone (real device) and dekstop, the goal of those test is to make sure that the App run well on real deferent device size.
 
